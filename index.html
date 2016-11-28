@@ -17,6 +17,7 @@
         <div class="container">
             <div class="row"><div class="col-md-12 text-center">
                 <h1>{{ titulo }}</h1>
+                <h3>{{ status }}</h3>
             </div></div>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -30,7 +31,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(index,conta) in contas">
+                            <tr v-for="(index,conta) in contas" class="{{ conta.pago ? 'success': ''}}">
                                 <td>{{ index + 1 }}</td>
                                 <td>{{ conta.vencimento }}</td>
                                 <td>{{ conta.nome }}</td>
