@@ -5,16 +5,22 @@
     <title>Contas</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li v-for="link in menus"><a href="javascript:void(0)" v-on:click="showView(link.id)">{{ link.nome }}</a></li>
-                        </ul>
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="navbar-brand">
+                            Contas
+                        </div>
                     </div>
                 </div>
             </div>
@@ -26,7 +32,12 @@
             </div></div>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <table class="table table-hover">
+                    <hr>
+                    <ul class="nav nav-tabs">
+                      <li v-for="link in menus" class="{{ activatedView == link.id ? 'active' : '' }}"><a href="javascript:void(0)" v-on:click="showView(link.id)">{{ link.nome }}</a></li>
+                    </ul>
+                    <br/>
+                    <table class="table table-hover" v-if="!activatedView">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -44,6 +55,16 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="row" v-if="activatedView">
+                <div class="col-md-6 col-md-offset-3">
+                    <form action="POST">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input name="nome" type="text" class="form-control">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

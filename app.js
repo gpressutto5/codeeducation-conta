@@ -6,6 +6,7 @@ var app = new Vue({
 			{id: 0, nome: "Listar contas"},
 			{id: 1, nome: "Criar conta"}
 		],
+		activatedView: 0,
 		contas: [
 			{vencimento: '20/12/2016', nome: 'Conta de Luz', valor: 153.47, pago: 1},
 			{vencimento: '21/12/2016', nome: 'Conta de Água', valor: 84.32, pago: 0},
@@ -29,7 +30,7 @@ var app = new Vue({
 	},
 	methods: {
 		showView: function($opcao){
-			console.log($opcao);
+			this.activatedView = $opcao;
 		}
 	}
 });
