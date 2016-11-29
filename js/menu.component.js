@@ -1,4 +1,4 @@
-var menuComponent = Vue.extend({
+window.menuComponent = Vue.extend({
     template: `
 <ul class="nav nav-tabs">
     <li v-for="link in menus" class="{{ activatedView == link.id ? 'active' : '' }}"><a href="#" @click.prevent="showView(link.id)">{{ link.nome }}</a></li>

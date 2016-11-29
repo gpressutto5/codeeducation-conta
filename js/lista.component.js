@@ -1,4 +1,4 @@
-var listaComponent = Vue.extend({
+window.listaComponent = Vue.extend({
     template: `
 <h3 v-show="!contas.length" class="text-info text-center">Não há contas</h3>
 <table class="table table-hover" v-show="contas.length">

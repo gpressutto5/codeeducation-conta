@@ -1,4 +1,4 @@
-var formComponent = Vue.extend({
+window.formComponent = Vue.extend({
     props: ['conta'],
     template: `
 <form  class="form-horizontal" @submit.prevent="cadastrar">

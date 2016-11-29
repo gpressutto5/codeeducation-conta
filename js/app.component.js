@@ -1,4 +1,4 @@
-var appComponent = Vue.extend({
+window.appComponent = Vue.extend({
     components: {
         'menu-component': menuComponent,
         'lista-component': listaComponent,
@@ -26,12 +26,13 @@ var appComponent = Vue.extend({
             <hr>
             <menu-component :activated-view="activatedView"></menu-component>
             <br/>
-            <div v-show="!activatedView">
+            <router-view></router-view>
+            <!--<div v-show="!activatedView">
                 <lista-component></lista-component>
             </div>
             <div v-show="activatedView">
                 <form-component :conta="conta"></form-component>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
