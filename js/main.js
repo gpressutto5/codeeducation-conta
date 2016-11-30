@@ -1,16 +1,17 @@
-var router = new VueRouter();
+const Foo = { template: "<div>Foo</div>" };
 
-router.map({
-    '/contas': {
-        component: listaComponent
-    },
-    '/conta/criar': {
-        component: formComponent
-    }
+var router = new VueRouter({
+    routes: [
+        { path: '/contas',      component: listaComponent },
+        { path: '/conta/criar', component: formComponent },
+        { path: '/foo',         component: Foo },
+        { path: '*',            component: listaComponent }
+    ]
 });
 
-router.start({
+const app = new Vue({
+    router: router,
     components: {
         'app-component': appComponent
     }
-});
+}).$mount('#app');

@@ -1,15 +1,19 @@
 window.menuComponent = Vue.extend({
     template: `
 <ul class="nav nav-tabs">
-    <li v-for="link in menus" class="{{ activatedView == link.id ? 'active' : '' }}"><a href="#" @click.prevent="showView(link.id)">{{ link.nome }}</a></li>
+    <router-link v-for="link in menus" tag="li" to="link.url">
+        <a>{{ link.nome}}</a>
+    </router-link>
+    <!--<li v-for="link in menus" class="{{ activatedView == link.id ? 'active' : '' }}"><router-link to="/foo">{{ link.nome }}</router-link></li>-->
 </ul>
+<router-link to="/foo">teste</router-link>
 `,
     props: ['activated-view'],
     data: function(){
         return {
             menus: [
-                {id: 0, nome: "Listar contas"},
-                {id: 1, nome: "Criar conta"}
+                {id: 0, nome: "Listar contas", url: "/contas"},
+                {id: 1, nome: "Criar conta", url: "/conta/criar"}
             ]
         };
     },

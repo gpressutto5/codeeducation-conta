@@ -5,34 +5,36 @@ window.appComponent = Vue.extend({
         'form-component': formComponent
     },
     template: `
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="navbar-brand">
-                    Contas
+<div>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="navbar-brand">
+                        Contas
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
-<div class="container" v-cloak>
-    <div class="row"><div class="col-md-12 text-center">
-        <h1>{{ titulo }}</h1>
-        <h3>{{ status }}</h3>
-    </div></div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <hr>
-            <menu-component :activated-view="activatedView"></menu-component>
-            <br/>
-            <router-view></router-view>
-            <!--<div v-show="!activatedView">
-                <lista-component></lista-component>
+    </nav>
+    <div class="container" v-cloak>
+        <div class="row"><div class="col-md-12 text-center">
+            <h1>{{ titulo }}</h1>
+            <h3>{{ status }}</h3>
+        </div></div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <hr>
+                <menu-component :activated-view="activatedView"></menu-component>
+                <br/>
+                <router-view></router-view>
+                <!--<div v-show="!activatedView">
+                    <lista-component></lista-component>
+                </div>
+                <div v-show="activatedView">
+                    <form-component :conta="conta"></form-component>
+                </div>-->
             </div>
-            <div v-show="activatedView">
-                <form-component :conta="conta"></form-component>
-            </div>-->
         </div>
     </div>
 </div>
@@ -41,7 +43,7 @@ window.appComponent = Vue.extend({
         return {
             titulo: "Contas a pagar",
             formType: 'insert',
-            activatedView: 1,
+            activatedView: 0,
             conta: {
                 vencimento: '',
                 nome: '',
